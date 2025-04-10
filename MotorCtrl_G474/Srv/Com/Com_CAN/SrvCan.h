@@ -24,13 +24,13 @@
 typedef struct 
 {
     FDCAN_TxHeaderTypeDef CanTxHeader;
-    uint8_t              *Data;       //目前只是用标准CAN
+    uint8_t              Data[8];       //目前只是用标准CAN
 }FDCAN_TXMessage_H743;
 
 typedef struct 
 {
     FDCAN_RxHeaderTypeDef CanRxHeader;
-    uint8_t              *Data;
+    uint8_t              Data[8];
 }FDCAN_RXMessage_H743;
 
 #if (MCU_DEVICE_VARIANT == STM32G474)
@@ -79,7 +79,8 @@ typedef struct
 /*******************************************************************************
  *-----------------------------------------函数接口------------------------------
  ******************************************************************************/
-
+CanRxMessage *Drv_GetEmptyRxBuff(CAN_RX_FIFO *pFifo);
+void Drv_AddRxBuff(CAN_RX_FIFO *pFifo);
 void Drv_CanInit(CAN_Type xCanType);
 Drv_StatusTypeDef Drv_CanConfigFilter(FDCAN_HandleTypeDef *hfdcan,\
     CAN_FilterInitType* sFilterConfig);
@@ -94,6 +95,9 @@ CanRxMessage * Drv_GetFirstRxBuff(CAN_RX_FIFO * pFifo);
 #define Drv_CAN1_SEND(xTxCmdData)              (Drv_CanTxMessage(&hfdcan1,xTxCmdData))
 #define Drv_CAN1_READ()                        (Drv_GetFirstRxBuff(&g_xCan1RxFifo))
 #define Drv_CAN1_FIFO_RELEASE()                (Drv_DecRxBuff(&g_xCan1RxFifo))
+
+#define Drv_CAN1_XCP_READ()                    (Drv_GetFirstRxBuff(&g_xCan1XCPFifo))
+#define Drv_CAN1_XCP_FIFO_RELEASE()            (Drv_DecRxBuff(&g_xCan1XCPFifo))
 
 #endif
 
@@ -110,7 +114,7 @@ CanRxMessage * Drv_GetFirstRxBuff(CAN_RX_FIFO * pFifo);
  *---------------------------—----—--------变量接口------------------------------
  ******************************************************************************/
 extern CAN_RX_FIFO g_xCan1RxFifo;
-
+extern CAN_RX_FIFO g_xCan1XCPFifo;
 
 #endif
 /*******************************************************************************

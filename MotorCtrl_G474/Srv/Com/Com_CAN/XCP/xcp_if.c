@@ -34,14 +34,14 @@ V_MEMROM0 MEMORY_ROM vuint8 kXcpStationId[kXcpStationIdLength] =
  ******************************************************************************/
 void XcpHandler( void )
 {
-    // PduInfoType PDU_data;
-    // uint8 Buffer[8] = {0};
-    // PDU_data.SduDataPtr = Buffer;
+    CanRxMessage *pxMsg;
+    pxMsg = Drv_CAN1_XCP_READ();
 
-    // if(TRUE == CanIf_ReadRxPduData(RXPDUID_XCP_Master,&PDU_data))
-    // {
-    //     XcpCommand( (void*)PDU_data.SduDataPtr );
-    // }
+    if(NULL != pxMsg)
+    {
+        XcpCommand( (void*)pxMsg->Data);
+        Drv_CAN1_XCP_FIFO_RELEASE();
+    }
 }
 
 /*******************************************************************************
@@ -73,12 +73,15 @@ void ApplXcpSend( vuint8 len, MEMORY_ROM BYTEPTR msg )
     pdu_data.CanTxHeader.ErrorStateIndicator = FDCAN_ESI_ACTIVE;
     pdu_data.CanTxHeader.TxEventFifoControl = FDCAN_NO_TX_EVENTS;
     pdu_data.CanTxHeader.DataLength = len;
-    pdu_data.Data = (void*)msg;
+    for(uint8_t i = 0; i < len; i++)
+    {
+        pdu_data.Data[i] = msg[i];
+    }
+    
     if(HAL_OK == Drv_CAN1_SEND(&pdu_data))
     {
         ApplXcpSendStall();
     }
-    
 }
 
 /*******************************************************************************

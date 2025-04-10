@@ -126,12 +126,17 @@ void DBC_InfoFill(Srv_CanFrame_E arg_CanFrame,Srv_CanTxFrameCallbackPtr arg_Cb)
 static void Srv_CanFilterSet(void)
 {
     CAN_FilterInitType xFilterConfig;
-    xFilterConfig.IdType=FDCAN_STANDARD_ID;                //标准ID
-    xFilterConfig.FilterIndex=0;                           //滤波器索引                   
-    xFilterConfig.FilterType=FDCAN_FILTER_MASK;            //滤波器类型
-    xFilterConfig.FilterConfig=FDCAN_FILTER_TO_RXFIFO0;    //过滤器0关联到FIFO0  
-    xFilterConfig.FilterID1=MOTOR_ID_PI_CTRL_RXCANID;          //32位ID1
-    xFilterConfig.FilterID2=0x780;                         //32位掩码
+    xFilterConfig.IdType = FDCAN_STANDARD_ID;                //标准ID
+    xFilterConfig.FilterIndex = 0;                           //滤波器索引                   
+    xFilterConfig.FilterType = FDCAN_FILTER_MASK;            //滤波器类型
+    xFilterConfig.FilterConfig = FDCAN_FILTER_TO_RXFIFO0;    //过滤器0关联到FIFO0  
+    xFilterConfig.FilterID1 = MOTOR_ID_PI_CTRL_RXCANID;      //32位ID1
+    xFilterConfig.FilterID2 = 0x780;                         //32位掩码
+    Drv_CAN1_CONFIGFILTER(&xFilterConfig);
+
+    xFilterConfig.FilterIndex = 1;                           //滤波器索引   
+    xFilterConfig.FilterID1 = XCP_ID_RXCANID;                //32位ID1
+    xFilterConfig.FilterID2 = 0x7FF;                         //32位掩码
     Drv_CAN1_CONFIGFILTER(&xFilterConfig);
 }
 
@@ -217,8 +222,24 @@ static void Srv_CanReceiveDeal(void)
                 //g_Iq_PiPara.Kp = rtb_dsd.motor_tor_iq_kp;
                 //g_Iq_PiPara.Ki = rtb_dsd.motor_tor_iq_ki;
             }
-                
             break;
+            case XCP_ID_RXCANID:
+            {
+                CanRxMessage *pFifoMsg;
+
+                pFifoMsg = Drv_GetEmptyRxBuff(&g_xCan1XCPFifo);
+                if (pFifoMsg != NULL)
+                {
+                    pFifoMsg->CanRxHeader.DataLength = pxMsg->CanRxHeader.DataLength;
+                    for(uint8_t i = 0;i < pFifoMsg->CanRxHeader.DataLength;i++)
+                    {
+                        pFifoMsg->Data[i] = pxMsg->Data[i];
+                    }
+                    Drv_AddRxBuff(&g_xCan1XCPFifo);
+                }
+            }
+            break;
+
             default:
             break;
         }

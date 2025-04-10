@@ -25,8 +25,6 @@
 /*******************************************************************************
  *-----------------------------------------函数声明------------------------------
  ******************************************************************************/
-static CanRxMessage *Drv_GetEmptyRxBuff(CAN_RX_FIFO *pFifo);
-static void Drv_AddRxBuff(CAN_RX_FIFO *pFifo);
 static void Drv_CanRxMessage(void);
 
 /*******************************************************************************
@@ -38,19 +36,18 @@ static void Drv_CanRxMessage(void);
  *-----------------------——----------------全局变量定义--------------------------
  ******************************************************************************/
 CAN_RX_FIFO g_xCan1RxFifo;
-
+CAN_RX_FIFO g_xCan1XCPFifo;
 
 /*******************************************************************************
  *---------------------------—----—--------函数实现------------------------------
  ******************************************************************************/
-
 /*******************************************************************************
  * 函 数 名: Drv_GetEmptyRxBuff
  * 功能描述: 从FIFO中返回可用空间
  * 输入参数: CAN_RX_FIFO: FIFO实例
  * 输出参数: CanRxMessage: 可用的空间
  *******************************************************************************/
-static CanRxMessage *Drv_GetEmptyRxBuff(CAN_RX_FIFO *pFifo)
+CanRxMessage *Drv_GetEmptyRxBuff(CAN_RX_FIFO *pFifo)
 {
     unsigned char ucLast;
     if (pFifo->ucNum >= CAN_RX_FIFO_DEPTH)
@@ -71,7 +68,7 @@ static CanRxMessage *Drv_GetEmptyRxBuff(CAN_RX_FIFO *pFifo)
  * 输入参数: CAN_RX_FIFO: FIFO实例
  * 输出参数: void
  *******************************************************************************/
-static void Drv_AddRxBuff(CAN_RX_FIFO *pFifo)
+void Drv_AddRxBuff(CAN_RX_FIFO *pFifo)
 {
     if (pFifo->ucNum >= CAN_RX_FIFO_DEPTH)
     {
