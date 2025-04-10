@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "F:\Program Files\IAR Systems\Embedded Workbench 9.1\common\bin\cspybat" -f "E:\All_Project\IAR_Project\MotorCtrl_G474\EWARM\settings\MotorCtrl_G474.MotorCtrl_G474.general.xcl" --backend -f "E:\All_Project\IAR_Project\MotorCtrl_G474\EWARM\settings\MotorCtrl_G474.MotorCtrl_G474.driver.xcl" 
+& "F:\Program Files\IAR Systems\Embedded Workbench 9.1\common\bin\cspybat" -f "E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\settings\MotorCtrl_G474.MotorCtrl_G474.general.xcl" --backend -f "E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\settings\MotorCtrl_G474.MotorCtrl_G474.driver.xcl" 
 }
 else
 {
-& "F:\Program Files\IAR Systems\Embedded Workbench 9.1\common\bin\cspybat" -f "E:\All_Project\IAR_Project\MotorCtrl_G474\EWARM\settings\MotorCtrl_G474.MotorCtrl_G474.general.xcl" --debug_file=$debugfile --backend -f "E:\All_Project\IAR_Project\MotorCtrl_G474\EWARM\settings\MotorCtrl_G474.MotorCtrl_G474.driver.xcl" 
+& "F:\Program Files\IAR Systems\Embedded Workbench 9.1\common\bin\cspybat" -f "E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\settings\MotorCtrl_G474.MotorCtrl_G474.general.xcl" --debug_file=$debugfile --backend -f "E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\settings\MotorCtrl_G474.MotorCtrl_G474.driver.xcl" 
 }

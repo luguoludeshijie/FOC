@@ -24,13 +24,13 @@
 typedef struct 
 {
     FDCAN_TxHeaderTypeDef CanTxHeader;
-    uint8_t              Data[8];       //目前只是用标准CAN
+    uint8_t              *Data;       //目前只是用标准CAN
 }FDCAN_TXMessage_H743;
 
 typedef struct 
 {
     FDCAN_RxHeaderTypeDef CanRxHeader;
-    uint8_t              Data[8];
+    uint8_t              *Data;
 }FDCAN_RXMessage_H743;
 
 #if (MCU_DEVICE_VARIANT == STM32G474)

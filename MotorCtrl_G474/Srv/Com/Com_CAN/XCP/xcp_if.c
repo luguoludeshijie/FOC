@@ -59,17 +59,26 @@ void XcpHandler( void )
  ******************************************************************************/
 void ApplXcpSend( vuint8 len, MEMORY_ROM BYTEPTR msg )
 {
-    // if(!msg)
-    // {
-    //     return;
-    // }
-    // PduInfoType pdu_data;
-    // pdu_data.SduDataPtr = (void*)msg;
-    // pdu_data.SduLength = len;
-    // if(TRUE == CanIf_Transmit(TXPDUID_XCP_Slave,&pdu_data))
-    // {
-    //     ApplXcpSendStall();
-    // }
+    if(!msg)
+    {
+        return;
+    }
+    CanTxMessage pdu_data;
+    pdu_data.CanTxHeader.Identifier = MOTOR_STATE_TXCANID;
+    pdu_data.CanTxHeader.TxFrameType = FDCAN_DATA_FRAME;
+    pdu_data.CanTxHeader.IdType = FDCAN_STANDARD_ID;
+    pdu_data.CanTxHeader.FDFormat = FDCAN_CLASSIC_CAN;
+    pdu_data.CanTxHeader.BitRateSwitch = FDCAN_BRS_OFF;
+    pdu_data.CanTxHeader.MessageMarker = 0;
+    pdu_data.CanTxHeader.ErrorStateIndicator = FDCAN_ESI_ACTIVE;
+    pdu_data.CanTxHeader.TxEventFifoControl = FDCAN_NO_TX_EVENTS;
+    pdu_data.CanTxHeader.DataLength = len;
+    pdu_data.Data = (void*)msg;
+    if(HAL_OK == Drv_CAN1_SEND(&pdu_data))
+    {
+        ApplXcpSendStall();
+    }
+    
 }
 
 /*******************************************************************************
