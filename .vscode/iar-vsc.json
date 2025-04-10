@@ -1,0 +1,18 @@
+{
+  "workspace": {
+    "path": "${workspaceFolder}\\MotorCtrl_G474\\EWARM\\Project.eww"
+  },
+  "workspaces": {
+    "${workspaceFolder}\\MotorCtrl_G474\\EWARM\\Project.eww": {
+      "configs": {
+        "${workspaceFolder}\\MotorCtrl_G474\\EWARM\\MotorCtrl_G474.ewp": "MotorCtrl_G474"
+      },
+      "selected": {
+        "path": "${workspaceFolder}\\MotorCtrl_G474\\EWARM\\MotorCtrl_G474.ewp"
+      }
+    }
+  },
+  "workbench": {
+    "path": "F:\\Program Files\\IAR Systems\\Embedded Workbench 9.1"
+  }
+}

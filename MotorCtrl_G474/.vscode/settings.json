@@ -1,0 +1,27 @@
+{
+    "files.associations": {
+        "task.h": "c",
+        "main.h": "c",
+        "motor_hall.h": "c",
+        "motor_info.h": "c",
+        "motor_filter.h": "c",
+        "motor_para.h": "c",
+        "fdcan.h": "c",
+        "gpio.h": "c",
+        "pi_cale.h": "c",
+        "srvcandbc.h": "c",
+        "common_math.h": "c",
+        "axis_transform.h": "c",
+        "stm32g4xx_hal.h": "c",
+        "stm32g4xx_hal_conf.h": "c",
+        "srvcanif.h": "c",
+        "xcpbasic.h": "c",
+        "motor_inc.h": "c",
+        "Srv.h": "c",
+        "stddef.h": "c",
+        "sys_task.h": "c",
+        "as5600.h": "c",
+        "app.h": "c",
+        "app_dbc.h": "c"
+    }
+}
