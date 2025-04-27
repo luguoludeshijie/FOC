@@ -44,6 +44,12 @@ typedef uint8_t Boolean;
 #include ".\Motor\Motor_transform.h"
 #include ".\Motor\Motor_Pid.h"
 
+#include ".\Com\Com_CAN\UDS\Base\uds_tp_private.h"
+#include ".\Com\Com_CAN\UDS\Base\uds_service.h"
+#include ".\Com\Com_CAN\UDS\Base\uds_port.h"
+#include ".\Com\Com_CAN\UDS\Base\uds_tp.h"
+
+#include ".\Com\Com_CAN\UDS\Service\service_cfg.h"
 
 
 /*******************************************************************************
