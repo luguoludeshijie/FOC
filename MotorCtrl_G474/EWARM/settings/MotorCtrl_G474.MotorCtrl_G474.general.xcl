@@ -1,14 +1,14 @@
-"F:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\bin\armPROC.dll" 
+"E:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\bin\armPROC.dll" 
 
-"F:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\bin\armJLINK.dll" 
+"E:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\bin\armJLINK.dll" 
 
-"E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\MotorCtrl_G474\Exe\MotorCtrl_G474.out" 
+"D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\MotorCtrl_G474\Exe\MotorCtrl_G474.out" 
 
---plugin="F:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\bin\armbat.dll" 
+--plugin="E:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\bin\armbat.dll" 
 
---device_macro="F:\Program Files\IAR Systems\Embedded Workbench 9.1\arm/config/debugger/ST/STM32G4xx.dmac" 
+--device_macro="E:\Program Files\IAR Systems\Embedded Workbench 9.1\arm/config/debugger/ST/STM32G4xx.dmac" 
 
---flash_loader="F:\Program Files\IAR Systems\Embedded Workbench 9.1\arm/config/flashloader/ST/FlashSTM32G47xxx.board" 
+--flash_loader="E:\Program Files\IAR Systems\Embedded Workbench 9.1\arm/config/flashloader/ST/FlashSTM32G47xxx.board" 
 
 
 

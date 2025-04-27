@@ -6,7 +6,7 @@
 
 "-p" 
 
-"F:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\CONFIG\debugger\ST\STM32G474VE.ddf" 
+"E:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\CONFIG\debugger\ST\STM32G474VE.ddf" 
 
 "--drv_verify_download" 
 

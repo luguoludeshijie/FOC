@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"F:\Program Files\IAR Systems\Embedded Workbench 9.1\common\bin\cspybat" -f "E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\settings\MotorCtrl_G474.MotorCtrl_G474.general.xcl" --backend -f "E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\settings\MotorCtrl_G474.MotorCtrl_G474.driver.xcl" 
+"E:\Program Files\IAR Systems\Embedded Workbench 9.1\common\bin\cspybat" -f "D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\settings\MotorCtrl_G474.MotorCtrl_G474.general.xcl" --backend -f "D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\settings\MotorCtrl_G474.MotorCtrl_G474.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"F:\Program Files\IAR Systems\Embedded Workbench 9.1\common\bin\cspybat" -f "E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\settings\MotorCtrl_G474.MotorCtrl_G474.general.xcl" "--debug_file=%~1" --backend -f "E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\settings\MotorCtrl_G474.MotorCtrl_G474.driver.xcl" 
+"E:\Program Files\IAR Systems\Embedded Workbench 9.1\common\bin\cspybat" -f "D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\settings\MotorCtrl_G474.MotorCtrl_G474.general.xcl" "--debug_file=%~1" --backend -f "D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\settings\MotorCtrl_G474.MotorCtrl_G474.driver.xcl" 
 
 @echo off 
 :end

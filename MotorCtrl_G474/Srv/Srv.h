@@ -21,6 +21,7 @@ typedef uint8_t Boolean;
 #include "stm32g4xx_ll_gpio.h"
 
 #include <string.h>
+#include <stdlib.h>
 #include <stdint.h>
 #include <stdbool.h>
 #include <stddef.h>

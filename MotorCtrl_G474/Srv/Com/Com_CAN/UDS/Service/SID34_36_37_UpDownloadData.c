@@ -87,12 +87,12 @@ void service_34_RequestDownload(const uint8_t *msg_buf, uint16_t msg_dlc)
     uint8_t rsp_buf[6];
     uint8_t mslen, malen;
 
-    rsp_buf[0] = USD_GET_POSITIVE_RSP(SID_34);
-    rsp_buf[1] = 0x40;
-    rsp_buf[2] = maxNumberOfBlockLength >> 24;
-    rsp_buf[3] = maxNumberOfBlockLength >> 16;
-    rsp_buf[4] = maxNumberOfBlockLength >> 8;
-    rsp_buf[5] = maxNumberOfBlockLength;
+    rsp_buf[0] = (uint8_t)(USD_GET_POSITIVE_RSP(SID_34));
+    rsp_buf[1] = (uint8_t)(0x40);
+    rsp_buf[2] = (uint8_t)(maxNumberOfBlockLength >> 24);
+    rsp_buf[3] = (uint8_t)(maxNumberOfBlockLength >> 16);
+    rsp_buf[4] = (uint8_t)(maxNumberOfBlockLength >> 8);
+    rsp_buf[5] = (uint8_t)(maxNumberOfBlockLength);
 
     compressionMethod = msg_buf[1] >> 4;
     encryptingMethod = msg_buf[1] & 0x0f;
@@ -163,7 +163,7 @@ void service_36_TransferData(const uint8_t *msg_buf, uint16_t msg_dlc)
             }
             else
             {
-                ProgramDataToFlash(msg_buf[2], msg_dlc - 2); // 刷写数据 ，msg_dlc长度减去SID 与 blockSequenceCounter
+                ProgramDataToFlash(&msg_buf[2], msg_dlc - 2); // 刷写数据 ，msg_dlc长度减去SID 与 blockSequenceCounter
             }
             uds_positive_rsp(rsp_buf, 2);
         }
