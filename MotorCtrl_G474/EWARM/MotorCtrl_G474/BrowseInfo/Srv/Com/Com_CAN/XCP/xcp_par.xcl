@@ -1,49 +1,49 @@
-"E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\Srv\Com\Com_CAN\XCP\xcp_par.c"
+"D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\Srv\Com\Com_CAN\XCP\xcp_par.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
 -funsigned-char
 -MD
 -MF
-E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\MotorCtrl_G474\BrowseInfo\Srv\Com\Com_CAN\XCP\xcp_par.pbi.dep
+D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\MotorCtrl_G474\BrowseInfo\Srv\Com\Com_CAN\XCP\xcp_par.pbi.dep
 -o
-E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\MotorCtrl_G474\BrowseInfo\Srv\Com\Com_CAN\XCP\xcp_par.pbi
+D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\MotorCtrl_G474\BrowseInfo\Srv\Com\Com_CAN\XCP\xcp_par.pbi
 -I
-E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\Srv\Com\Com_CAN\XCP
+D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\Srv\Com\Com_CAN\XCP
 -I
-E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM/../Core/Inc
+D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM/../Core/Inc
 -I
-E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM/../Drivers/STM32G4xx_HAL_Driver/Inc
+D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM/../Drivers/STM32G4xx_HAL_Driver/Inc
 -I
-E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM/../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy
+D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM/../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy
 -I
-E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM/../Drivers/CMSIS/Device/ST/STM32G4xx/Include
+D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM/../Drivers/CMSIS/Device/ST/STM32G4xx/Include
 -I
-E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM/../Drivers/CMSIS/Include
+D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM/../Drivers/CMSIS/Include
 -I
-E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\..\App
+D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\..\App
 -I
-E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\..\Srv
+D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\..\Srv
 -I
-F:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\inc\c\aarch32
+E:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\inc\c\aarch32
 -I
-F:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\inc
+E:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\inc
 -I
-F:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\inc\c
+E:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\inc\c
 -I
-E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\Core\Inc
+D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\Core\Inc
 -I
-E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\Drivers\STM32G4xx_HAL_Driver\Inc
+D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\Drivers\STM32G4xx_HAL_Driver\Inc
 -I
-E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\Drivers\STM32G4xx_HAL_Driver\Inc\Legacy
+D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\Drivers\STM32G4xx_HAL_Driver\Inc\Legacy
 -I
-E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\Drivers\CMSIS\Device\ST\STM32G4xx\Include
+D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\Drivers\CMSIS\Device\ST\STM32G4xx\Include
 -I
-E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\Drivers\CMSIS\Include
+D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\Drivers\CMSIS\Include
 -I
-E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\App
+D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\App
 -I
-E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\Srv
+D:\All_Project\IAR_Project\FOC\MotorCtrl_G474\Srv
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0
@@ -399,8 +399,8 @@ E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\Srv
 -D__EDG_INT128_EXTENSIONS_ALLOWED=0
 -DUSE_HAL_DRIVER=1
 -DSTM32G474xx=1
--D_DLIB_CONFIG_FILE_HEADER_NAME="F:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\inc\c\DLib_Config_Full.h"
--D_DLIB_CONFIG_FILE_STRING="F:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\arm\\inc\\c\\DLib_Config_Full.h"
+-D_DLIB_CONFIG_FILE_HEADER_NAME="E:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\inc\c\DLib_Config_Full.h"
+-D_DLIB_CONFIG_FILE_STRING="E:\\Program Files\\IAR Systems\\Embedded Workbench 9.1\\arm\\inc\\c\\DLib_Config_Full.h"
 -D__VERSION__="IAR ANSI C/C++ Compiler V9.30.1.335/W64 for ARM"
 -D_VA_DEFINED=
 -D_VA_LIST=struct __va_list

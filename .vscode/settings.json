@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "com_dbc.h": "c",
+        "app.h": "c",
+        "srv.h": "c",
+        "sid85_controldtcsetting.h": "c"
+    }
+}
