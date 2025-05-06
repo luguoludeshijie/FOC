@@ -121,102 +121,39 @@ extern IPARK g_IPARKPara;
 *******************************************************************************/
 static void FOC_HALL_CC_IRQ_Handler(FOC_HALL_T *foc_hall)
 {
-    uint8_t HallState = HALL_U_GET 
-                        | HALL_V_GET << 1
-                        | HALL_W_GET << 2;
-    uint32_t hHighSpeedCapture = (int64_t)htim5.Instance->CCR1;
 
-    
-    foc_hall->Sector = HallState;
-    if(foc_hall->Sector_pre != foc_hall->Sector)
-    {
-        Move_Filter_fill(&g_Hall.Secsize_filter, g_IPARKPara.Angle);
-        foc_hall->Sector_size[foc_hall->Sector] =  \
-            (uint16_t)Move_Filter_calculate(&g_Hall.Secsize_filter);
-    }
-    foc_hall->Sector_pre = foc_hall->Sector;
-    foc_hall->Sector_Map[HallState] = hHighSpeedCapture;
-    // BLDCMotor_PhaseCtrl(HallState);
-    // /*必须在切换扇区前计算上一个扇区的补偿系数*/
-    // Hall_SectorComp_Caculate(foc_hall, hHighSpeedCapture);
+}
+ 
+/*******************************************************************************
+* 函 数 名: Hall_SelfLearning
+* 功能描述: 霍尔自学习，自动标定每个霍尔区间的起始角度和宽度
+* 输入参数: void
+* 输出参数: void
+*******************************************************************************/
+void Hall_SelfLearning(void)
+{
+    // 1. 使能电机低速匀速正反转，记录每个霍尔状态变化时的电角度
+    // 2. 依次采集6个区间的起始角度和宽度，存入g_Hall.Sector_pos/size等
+    // 3. 建议在自学习期间关闭FOC闭环，采用开环电流或电压控制
+    // 4. 标定完成后可将参数保存到Flash
 
-    // switch (HallState)
+    // 伪代码流程如下，具体实现需结合实际硬件和控制流程：
+    // for (int dir = 0; dir < 2; dir++) // 0:正转 1:反转
     // {
-    //     case 4:
-    //         if(foc_hall->sector_pre==6){
-    //             foc_hall->speed.dir = COROTATION;
-    //         }else if(foc_hall->sector_pre==5){
-    //             foc_hall->speed.dir = REVERSAL;
-    //         }
-    //         foc_hall->sector = 0;
-    //         break;
-    //     case 5:
-    //         if(foc_hall->sector_pre==4){
-    //             foc_hall->speed.dir = COROTATION;
-    //         }else if(foc_hall->sector_pre==1){
-    //             foc_hall->speed.dir = REVERSAL;
-    //         }
-    //         foc_hall->sector = 1;
-    //         break;
-    //     case 1:
-    //         if(foc_hall->sector_pre==5){
-    //             foc_hall->speed.dir = COROTATION;
-    //         }else if(foc_hall->sector_pre==3){
-    //             foc_hall->speed.dir = REVERSAL;
-    //         }
-    //         foc_hall->sector = 2;
-    //         break;
-    //     case 3:
-    //         if(foc_hall->sector_pre==1){
-    //             foc_hall->speed.dir = COROTATION;
-    //         }else if(foc_hall->sector_pre==2){
-    //             foc_hall->speed.dir = REVERSAL;
-    //         }
-    //         foc_hall->sector = 3;
-    //         break;
-    //     case 2:
-    //         if(foc_hall->sector_pre==3){
-    //             foc_hall->speed.dir = COROTATION;
-    //         }else if(foc_hall->sector_pre==6){
-    //             foc_hall->speed.dir = REVERSAL;
-    //         }
-    //         foc_hall->sector = 4;
-    //         break;
-    //     case 6:
-    //         if(foc_hall->sector_pre==2){
-    //             foc_hall->speed.dir = COROTATION;
-    //         }else if(foc_hall->sector_pre==5){
-    //             foc_hall->speed.dir = REVERSAL;
-    //         }
-    //         foc_hall->sector = 5;
-    //         break;
+    //     启动电机低速匀速旋转(dir方向);
+    //     等待电机稳定;
+    //     for (int i = 0; i < 6; i++)
+    //     {
+    //         等待霍尔状态变化;
+    //         记录当前电角度 HallAngle;
+    //         g_Hall.Sector_pos[i] = HallAngle;
+    //         等待下一个霍尔状态变化;
+    //         记录当前电角度 HallAngle2;
+    //         g_Hall.Sector_size[i] = HallAngle2 - HallAngle;
+    //     }
+    //     // 可选: 反转时记录g_Hall.Sector_pos_c/size_c
     // }
-    // foc_hall->sector_pre = HallState;
-
-    // /*角度累计, 堵转补偿 积分补偿清零*/
-    // // foc_hall->Lock_ElAngle = 0.0f;
-    // foc_hall->Sector_ElAngle_Sum = 0.0f;
-    // foc_hall->Sector_CompIntegral = 0.0f;  
-
-    // if(foc_hall->speed.dir==COROTATION){
-    //     foc_hall->Sector_ElAngle = foc_hall->sector_pos[foc_hall->sector];
-    // }else{
-    //     foc_hall->Sector_ElAngle = foc_hall->sector_pos_c[foc_hall->sector];
-    // }
-
-    // /*存入滑动滤波器缓冲区*/
-    // Move_Filter_fill(&foc_hall->Period_filter, hHighSpeedCapture);
-    // /*计算扇区速度*/
-    // float AvrCount = Move_Filter_calculate(&foc_hall->Period_filter);               /* 平均每个扇区的计数值 */
-    // float t = AvrCount / foc_hall->hall_freq;                                       /* 一个周期的时间 */
-    // foc_hall->AvrElSpeed = _PI_3/t;                                                 /* 霍尔计算的电角速度 */
-    // foc_hall->AvrElSpeedDpp = foc_hall->AvrElSpeed /foc_hall->foc_freq;             /* 一个foc周期内增加的霍尔扇区内电角度*/
-
-   
-    // /*用于调试霍尔位置偏差的*/
-    // Hall_Parameter_Calculate(foc_hall, hHighSpeedCapture);
-    // Hall_Parameter_Debug(foc_hall);
-
+    // 标记自学习完成
 }
  
 /*******************************************************************************

@@ -58,7 +58,7 @@ E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\MotorCtrl_G474\BrowseInfo\Sr
   E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\..\Srv\.\Com\Com_I2C\AS5600\AS5600.h \
   E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\..\Srv\.\Com\Com_CAN\SrvCan.h \
   E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\..\Srv\.\Com\Com_CAN\DBC\Com_DBC.h \
-  E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\Srv\Com\Com_CAN\DBC\Com_DBC_Cfg.h \
+  E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\..\Srv\.\Com\Com_CAN\DBC\Com_DBC_Cfg.h \
   E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\..\Srv\.\Com\Com_CAN\XCP\XcpBasic.h \
   E:\All_Project\IAR_Project\FOC\MotorCtrl_G474\EWARM\..\Srv\.\Com\Com_CAN\XCP\xcp_cfg.h \
   F:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\stdio.h \

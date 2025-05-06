@@ -49,6 +49,9 @@
 void App_1ms_Task(void)
 {       
     Srv_CanMain();
+    XcpHandler();
+    XcpEvent(EVENT_1MS);
+    
 }
 
 /*******************************************************************************

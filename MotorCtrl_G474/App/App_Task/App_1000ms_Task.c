@@ -49,6 +49,8 @@
 void App_1000ms_Task(void)
 {       
     HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+
+    XcpEvent(EVENT_1000MS);
 }
 
 /*******************************************************************************
